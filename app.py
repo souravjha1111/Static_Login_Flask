@@ -39,18 +39,8 @@ def before_request():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        session.pop('user_id', None)
-
-        username = request.form['username']
-        password = request.form['password']
-        
-        user = [x for x in users if x.username == username][0]
-        print("Valid USer[0]",user)
-        if '123' == password:
-            return redirect(url_for('profile'))
-
-        return redirect(url_for('login'))
-
+       return redirect(url_for('profile'))
+       return redirect(url_for('login'))
     return render_template('login.html')
 
 @app.route('/profile')
